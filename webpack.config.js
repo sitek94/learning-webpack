@@ -1,14 +1,20 @@
-
 // We don't have to install path - it comes with node
 const path = require('path');
 
 module.exports = {
-  mode: "development",
-  devtool: "none",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    filename: "bundle.js",
+    filename: 'main.js',
     // __dirname - absolute path
-    path: path.resolve(__dirname, "dist")
-  }
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 };
